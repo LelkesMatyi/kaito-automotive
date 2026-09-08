@@ -54,7 +54,7 @@ img{display:block;max-width:100%}
   position:relative;
   display:flex;align-items:flex-end;
   padding:150px clamp(24px,7vw,110px) 80px;
-  background-image:url("https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=2200&q=90");
+  background-image:url("assets/kaito-hero-final.png");
   background-size:cover;background-position:center;
 }
 .hero-overlay{
