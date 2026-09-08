@@ -21,7 +21,3 @@ Egyszerű statikus weboldal, közvetlenül telepíthető Vercelre.
 5. Deploy.
 
 A kapcsolat és az árak jelenleg mintaadatok.
-
-
-## Hero igazítás
-A desktop hero HTML-szöveg pozíciója és mérete a jelenlegi borítókép beégetett felirataihoz van igazítva.
