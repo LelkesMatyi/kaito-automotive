@@ -36,12 +36,6 @@ img{display:block;max-width:100%}
 }
 
 .brand{display:flex;align-items:center;gap:12px}
-.brand-mark{
-  width:42px;height:42px;display:grid;place-items:center;
-  background:var(--red);font-family:"Noto Sans JP",sans-serif;font-weight:900;
-}
-.brand strong{display:block;letter-spacing:.18em;font-size:15px}
-.brand small{display:block;color:#aaa;font-size:9px;letter-spacing:.18em;margin-top:4px}
 
 .main-nav{display:flex;align-items:center;gap:28px;font-size:13px;font-weight:600}
 .main-nav a{color:#d8d8d8;transition:.2s}
@@ -202,8 +196,17 @@ footer{
   footer{flex-direction:column;align-items:flex-start}
 }
 
-/* Kaito approved header logo */
-.brand-logo{display:flex;align-items:center}
+@media (max-width:700px){
+  .brand-logo img{width:180px;max-height:58px}
+}
+
+
+/* Final Kaito header logo */
+.brand-logo{
+  display:flex;
+  align-items:center;
+  flex:0 0 auto;
+}
 .brand-logo img{
   display:block;
   width:clamp(190px,18vw,300px);
@@ -213,5 +216,8 @@ footer{
   object-position:left center;
 }
 @media (max-width:700px){
-  .brand-logo img{width:180px;max-height:58px}
+  .brand-logo img{
+    width:170px;
+    max-height:54px;
+  }
 }
