@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Kaito Automotive Group</title>
+  <meta name="description" content="Kaito Automotive Group — prémium japán ihletésű tuning, performance és egyedi építések Los Santosban.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Kaito Automotive">
+      <span class="brand-mark">海</span>
+      <span>
+        <strong>KAITO</strong>
+        <small>AUTOMOTIVE GROUP</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Menü megnyitása" aria-expanded="false">☰</button>
+
+    <nav class="main-nav">
+      <a href="#services">Szolgáltatások</a>
+      <a href="#builds">Építések</a>
+      <a href="#pricing">Árak</a>
+      <a href="#about">Rólunk</a>
+      <a class="nav-cta" href="#contact">Kapcsolat</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="hero-content reveal">
+        <p class="eyebrow">海斗 • JAPANESE PERFORMANCE</p>
+        <h1>Precision.<br><span>Performance.</span><br>Japanese Spirit.</h1>
+        <p class="hero-copy">
+          Prémium tuning, precíz szerelés és karakteres építések.
+          A Kaito Automotive azoknak készít autót, akik nem akarnak beleolvadni a forgalomba.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#services">Szolgáltatások</a>
+          <a class="btn btn-ghost" href="#builds">Projektjeink</a>
+        </div>
+      </div>
+
+      <div class="hero-side reveal">
+        <span>LOS SANTOS</span>
+        <span>PERFORMANCE DIVISION</span>
+      </div>
+    </section>
+
+    <section class="section intro">
+      <div class="section-kicker">01 / FILOZÓFIA</div>
+      <div class="intro-grid">
+        <h2>Nem csak gyorsabb.<br><span>Jobban megépített.</span></h2>
+        <p>
+          A Kaito Automotive a japán műhelyek precizitását ötvözi a Los Santos-i utcák
+          agresszív karakterével. Minden projekt célja ugyanaz: tiszta forma, megbízható technika,
+          érezhető teljesítmény.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">02 / SZOLGÁLTATÁSOK</div>
+          <h2>Amit az autódnak<br><span>adni tudunk.</span></h2>
+        </div>
+        <p>Utcai használattól a teljes performance buildig.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card reveal">
+          <span>01</span>
+          <h3>Performance tuning</h3>
+          <p>Motor, ECU, turbó, hűtés és hajtáslánc összehangolása.</p>
+        </article>
+        <article class="service-card reveal">
+          <span>02</span>
+          <h3>Futómű & fék</h3>
+          <p>Stabilabb úttartás, pontosabb kormányzás és nagyobb fékerő.</p>
+        </article>
+        <article class="service-card reveal">
+          <span>03</span>
+          <h3>Kipufogórendszer</h3>
+          <p>Karakteres hangzás és szabadabb gázáramlás az autó stílusához igazítva.</p>
+        </article>
+        <article class="service-card reveal">
+          <span>04</span>
+          <h3>Visual customization</h3>
+          <p>Felnik, karosszéria, stance, színek és részletek egy koncepcióban.</p>
+        </article>
+        <article class="service-card reveal">
+          <span>05</span>
+          <h3>Karbantartás</h3>
+          <p>Átvizsgálás, javítás és megelőző szerviz a megbízhatóságért.</p>
+        </article>
+        <article class="service-card reveal">
+          <span>06</span>
+          <h3>Full build</h3>
+          <p>Komplett projekttervezés a gyári állapottól az átadásig.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="build-section" id="builds">
+      <div class="build-copy reveal">
+        <div class="section-kicker">03 / FEATURED BUILD</div>
+        <h2>Elegy Retro<br><span>Midnight Dragon.</span></h2>
+        <p>
+          Japán ihletésű street-performance építés mély Midnight Purple karosszériával,
+          visszafogott arany részletekkel és versenypályára hangolt technikával.
+        </p>
+
+        <div class="spec-list">
+          <div><span>Motor</span><strong>Stage 3 Performance</strong></div>
+          <div><span>Hajtás</span><strong>AWD Conversion</strong></div>
+          <div><span>Stílus</span><strong>JDM Street / Track</strong></div>
+        </div>
+      </div>
+
+      <div class="before-after reveal" id="compare">
+        <img class="ba-image ba-after" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=85" alt="Tuningolt sportautó">
+        <div class="ba-before-wrap" id="beforeWrap">
+          <img class="ba-image ba-before" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=85" alt="Gyári sportautó">
+        </div>
+        <div class="ba-line" id="baLine"></div>
+        <input id="baRange" type="range" min="0" max="100" value="48" aria-label="Gyári és tuningolt állapot összehasonlítása">
+        <span class="ba-label left">STOCK</span>
+        <span class="ba-label right">KAITO BUILD</span>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">04 / ÁRAK</div>
+          <h2>Átlátható.<br><span>Projektalapú.</span></h2>
+        </div>
+        <p>Az alábbi árak mintaárak; később könnyen átírhatók a szerver gazdaságához.</p>
+      </div>
+
+      <div class="price-table reveal">
+        <div class="price-row header"><span>Szolgáltatás</span><span>Ár</span></div>
+        <div class="price-row"><span>Általános átvizsgálás</span><strong>$2,500</strong></div>
+        <div class="price-row"><span>ECU tuning</span><strong>$7,500-tól</strong></div>
+        <div class="price-row"><span>Performance fékrendszer</span><strong>$9,000-tól</strong></div>
+        <div class="price-row"><span>Sport futómű</span><strong>$10,500-tól</strong></div>
+        <div class="price-row"><span>Turbo upgrade</span><strong>$18,000-tól</strong></div>
+        <div class="price-row"><span>Full build csomag</span><strong>Egyedi ajánlat</strong></div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="about-mark reveal">海斗</div>
+      <div class="about-copy reveal">
+        <div class="section-kicker">05 / KAITO</div>
+        <h2>Az autó karaktere<br><span>a részletekben él.</span></h2>
+        <p>
+          A Kaito Automotive Group egy japán ihletésű tuning- és performance műhely.
+          A célunk nem a túlzás, hanem az összhang: olyan autókat építünk, amelyek már álló helyzetben
+          elmondják, kiknek készültek.
+        </p>
+        <p>
+          Minden projekt konzultációval kezdődik, majd egy világos build-terv alapján készül el.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="contact-inner reveal">
+        <div class="section-kicker">06 / CONTACT</div>
+        <h2>Van egy elképzelésed?<br><span>Építsük meg.</span></h2>
+        <p>Foglalj időpontot vagy kérj egyedi ajánlatot a következő projektedhez.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:kaitoautomotive@example.com">E-mail</a>
+          <a class="btn btn-ghost" href="#">Discord</a>
+        </div>
+        <small>A kapcsolati adatokat később a saját RP elérhetőségeidre cseréljük.</small>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand footer-brand">
+      <span class="brand-mark">海</span>
+      <span><strong>KAITO</strong><small>AUTOMOTIVE GROUP</small></span>
+    </div>
+    <p>© <span id="year"></span> Kaito Automotive Group. RP project.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
