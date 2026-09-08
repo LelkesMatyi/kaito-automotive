@@ -52,10 +52,12 @@ img{display:block;max-width:100%}
 .hero{
   min-height:100svh;
   position:relative;
-  display:flex;align-items:flex-end;
-  padding:150px clamp(24px,7vw,110px) 80px;
+  display:flex;
+  align-items:flex-start;
+  padding:clamp(235px,28.5vh,270px) clamp(24px,8.2vw,138px) 80px;
   background-image:url("assets/kaito-hero-final.png");
-  background-size:cover;background-position:center;
+  background-size:cover;
+  background-position:center top;
 }
 .hero-overlay{
   position:absolute;inset:0;
@@ -74,13 +76,23 @@ img{display:block;max-width:100%}
   letter-spacing:-.05em;
   margin:18px 0 22px;
 }
-.hero h1{font-size:clamp(54px,8vw,118px)}
+.hero h1{
+  font-size:clamp(50px,4.35vw,73px);
+  line-height:.94;
+  letter-spacing:-.045em;
+  margin:17px 0 20px;
+}
 .hero h1 span,.section h2 span,.build-copy h2 span,.contact-inner h2 span{color:var(--red)}
-.hero-copy{max-width:650px;color:#c4c4c4;line-height:1.8;font-size:16px}
-.hero-actions,.contact-actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.hero-copy{
+  max-width:520px;
+  color:#c4c4c4;
+  line-height:1.55;
+  font-size:14px;
+}
+.hero-actions,.contact-actions{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;
-  min-width:150px;padding:14px 22px;border:1px solid #555;
+  min-width:190px;padding:15px 22px;border:1px solid #555;
   font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
   transition:.2s;
 }
@@ -200,4 +212,23 @@ footer{
   .section-heading{gap:20px}
   .before-after{min-height:420px}
   footer{flex-direction:column;align-items:flex-start}
+}
+
+
+/* Desktop hero alignment for the current baked-in cover artwork */
+@media (min-width:901px){
+  .hero-content{max-width:620px}
+  .hero .eyebrow{font-size:10px;letter-spacing:.22em}
+}
+
+/* On mobile, prioritize readability over matching the desktop artwork exactly. */
+@media (max-width:900px){
+  .hero{
+    align-items:flex-end;
+    padding:150px 22px 60px;
+    background-position:center;
+  }
+  .hero h1{font-size:clamp(46px,12vw,64px)}
+  .hero-copy{font-size:15px;line-height:1.7}
+  .btn{min-width:150px}
 }
