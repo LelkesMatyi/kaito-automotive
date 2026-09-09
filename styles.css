@@ -332,3 +332,53 @@ footer{
 .project-build-sheet em{color:#777;font-style:normal}
 .project-build-sheet b{color:#555}
 .project-build-sheet strong{color:#d60018}
+
+/* Project 001 layout: Build Sheet under comparison */
+.build-section{
+  grid-template-columns:1fr !important;
+}
+.build-copy{
+  max-width:900px;
+}
+.before-after{
+  width:100%;
+}
+.project-build-sheet{
+  grid-column:1/-1;
+  margin-top:0;
+  border:1px solid #292929;
+  border-top:0;
+  padding:26px 30px 30px;
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:0;
+}
+.project-build-sheet .pbs-title{
+  grid-column:1/-1;
+  padding:0 0 18px;
+}
+.project-build-sheet > div:not(.pbs-title){
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+  padding:18px 20px;
+  border-top:1px solid #292929;
+  border-right:1px solid #292929;
+  font-size:11px;
+}
+.project-build-sheet > div:not(.pbs-title):last-child{border-right:0}
+.project-build-sheet > div:not(.pbs-title) b{display:none}
+.project-build-sheet > div:not(.pbs-title) em::after{
+  content:"  →";
+  color:#555;
+  font-style:normal;
+}
+@media(max-width:900px){
+  .project-build-sheet{grid-template-columns:1fr 1fr;padding:22px}
+  .project-build-sheet .pbs-title{grid-column:1/-1}
+  .project-build-sheet > div:not(.pbs-title){border-right:0}
+}
+@media(max-width:560px){
+  .project-build-sheet{grid-template-columns:1fr}
+}
