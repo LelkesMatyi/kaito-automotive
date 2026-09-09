@@ -31,5 +31,3 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 document.getElementById('year').textContent = new Date().getFullYear();
-
-document.querySelectorAll(".fb-compare[data-compare]").forEach(c=>{const r=c.querySelector("[data-range]"),a=c.querySelector("[data-after]"),l=c.querySelector("[data-line]");const u=()=>{a.style.clipPath=`inset(0 0 0 ${r.value}%)`;l.style.left=`${r.value}%`};r.addEventListener("input",u);u();});
