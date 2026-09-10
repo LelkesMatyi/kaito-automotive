@@ -382,3 +382,26 @@ footer{
 @media(max-width:560px){
   .project-build-sheet{grid-template-columns:1fr}
 }
+
+
+/* Pricing — LOW / MID / HIGH + Kaito Build */
+.pricing-classes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:38px}
+.pricing-class{background:#0b0b0c;border:1px solid #292929;overflow:hidden}
+.pricing-class-head{padding:24px;border-bottom:2px solid #a20f16;display:flex;flex-direction:column;gap:5px}
+.pricing-class-head span{font-size:22px;font-weight:900;letter-spacing:.08em}
+.pricing-class-head small{color:#8e8e91;text-transform:uppercase;letter-spacing:.08em}
+.pricing-package{min-height:112px;padding:20px 22px;border-bottom:1px solid #242426;display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+.pricing-package strong{display:block;font-size:14px;text-transform:uppercase;letter-spacing:.06em}
+.pricing-package small{display:block;color:#8d8d90;line-height:1.55;margin-top:6px}
+.pricing-package b{font-size:18px;color:#f1f1f1}
+.pricing-package.kaito-build{background:linear-gradient(135deg,rgba(162,15,22,.22),rgba(10,10,11,.95));border-left:3px solid #b3121b}
+.pricing-package.kaito-build strong{color:#e23b43}
+.pricing-package.kaito-build b{font-size:22px}
+.pricing-package.kaito-build em{font-size:10px;font-style:normal;color:#e23b43;letter-spacing:.12em;margin-left:5px}
+.pricing-notes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.pricing-notes>div{padding:22px 24px;border:1px solid #292929;background:#0b0b0c}
+.pricing-notes strong{font-size:13px;letter-spacing:.1em;color:#d7d7d7}
+.pricing-notes p{margin:10px 0 0;color:#929295;line-height:1.65;font-size:13px}
+.pricing-notes .kaito-note{border-color:#6f1116;background:rgba(120,10,16,.12)}
+.pricing-notes .kaito-note strong{color:#e23b43}
+@media(max-width:1050px){.pricing-classes{grid-template-columns:1fr}.pricing-package{min-height:auto}.pricing-notes{grid-template-columns:1fr}}
