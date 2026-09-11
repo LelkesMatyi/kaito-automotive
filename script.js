@@ -31,3 +31,28 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Contact form switcher. Discord delivery will be connected in the final integration step.
+const contactPaths = document.querySelectorAll('[data-contact-target]');
+const contactPanels = document.querySelectorAll('.contact-form-panel');
+contactPaths.forEach(button => button.addEventListener('click', () => {
+  contactPaths.forEach(item => item.classList.remove('active'));
+  contactPanels.forEach(panel => panel.classList.remove('active'));
+  button.classList.add('active');
+  const panel = document.getElementById(button.dataset.contactTarget);
+  if (panel) panel.classList.add('active');
+}));
+
+document.querySelectorAll('[data-demo-form]').forEach(form => {
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    let message = form.querySelector('.form-message');
+    if (!message) {
+      message = document.createElement('small');
+      message.className = 'form-message';
+      form.querySelector('.form-submit').appendChild(message);
+    }
+    message.textContent = 'Az űrlap működik — a Discord-küldést a végleges integrációnál aktiváljuk.';
+  });
+});

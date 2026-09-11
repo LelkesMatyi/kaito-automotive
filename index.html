@@ -284,15 +284,61 @@
     </section>
 
     <section class="contact-section" id="contact">
-      <div class="contact-inner reveal">
+      <div class="contact-shell reveal">
         <div class="section-kicker">06 / CONTACT</div>
-        <h2>Van egy elképzelésed?<br><span>Építsük meg.</span></h2>
-        <p>Foglalj időpontot vagy kérj egyedi ajánlatot a következő projektedhez.</p>
-        <div class="contact-actions">
-          <a class="btn btn-primary" href="mailto:kaitoautomotive@example.com">E-mail</a>
-          <a class="btn btn-ghost" href="#">Discord</a>
+        <h2>Van egy elképzelésed?<br><span>Dolgozzunk együtt.</span></h2>
+        <p class="contact-lead">Válaszd ki, miben segíthet a Kaito Automotive. Küldj tuning ajánlatkérést, vagy jelentkezz szerelőtelepeddel a Supply partnerhálózatba.</p>
+
+        <div class="contact-paths">
+          <button class="contact-path active" type="button" data-contact-target="tuningForm">
+            <small>01 / JÁRMŰ &amp; TUNING</small><strong>AJÁNLATKÉRÉS</strong><span>Projekt, tuning vagy teljes Kaito Build.</span>
+          </button>
+          <button class="contact-path" type="button" data-contact-target="partnerForm">
+            <small>02 / SUPPLY PARTNERSHIP</small><strong>PARTNERI JELENTKEZÉS</strong><span>Csatlakozás a Kaito alkatrészellátási partnerhálózatához.</span>
+          </button>
+          <button class="contact-path discord-path" type="button" disabled>
+            <small>03 / COMMUNITY</small><strong>DISCORD</strong><span>A közvetlen Discord kapcsolatot a végleges integrációnál aktiváljuk.</span>
+          </button>
         </div>
-        <small>A kapcsolati adatokat később a saját RP elérhetőségeidre cseréljük.</small>
+
+        <div class="contact-form-panel active" id="tuningForm">
+          <div class="form-heading"><small>01 / JÁRMŰ &amp; TUNING</small><h3>AJÁNLATKÉRÉS</h3><p>Írd le a projekted alapadatait és az elképzelésedet.</p></div>
+          <form class="kaito-form" data-demo-form>
+            <label><span>Ügyfél neve / Discord név</span><input type="text" name="customer" placeholder="Pl. KaitoFan22" required></label>
+            <label><span>Jármű</span><input type="text" name="vehicle" placeholder="Pl. Elegy Retro Custom" required></label>
+            <label><span>Jármű értéke</span><input type="text" name="value" placeholder="Pl. 280 000 $" required></label>
+            <fieldset class="form-wide"><legend>Milyen szolgáltatás érdekel?</legend><div class="choice-grid">
+              <label class="choice"><input type="radio" name="service" value="Verseny / Gyorsulás" required><span>Verseny / Gyorsulás</span></label>
+              <label class="choice"><input type="radio" name="service" value="Drift"><span>Drift</span></label>
+              <label class="choice"><input type="radio" name="service" value="Csak optika"><span>Csak optika</span></label>
+              <label class="choice"><input type="radio" name="service" value="Kaito Build"><span>Kaito Build</span></label>
+            </div></fieldset>
+            <fieldset class="form-wide"><legend>Import tuning is érdekel?</legend><div class="choice-grid choice-grid-3">
+              <label class="choice"><input type="radio" name="import" value="Igen" required><span>Igen</span></label>
+              <label class="choice"><input type="radio" name="import" value="Nem"><span>Nem</span></label>
+              <label class="choice"><input type="radio" name="import" value="Még nem tudom"><span>Még nem tudom</span></label>
+            </div></fieldset>
+            <label class="form-wide"><span>Elképzelés / Megjegyzés</span><textarea name="idea" rows="6" placeholder="Írd le, milyen projektet szeretnél..." required></textarea></label>
+            <div class="form-submit form-wide"><button class="btn btn-primary" type="submit">AJÁNLATKÉRÉS KÜLDÉSE</button><small>Az űrlap Discord-küldését a végleges integrációnál aktiváljuk.</small></div>
+          </form>
+        </div>
+
+        <div class="contact-form-panel" id="partnerForm">
+          <div class="form-heading"><small>02 / SUPPLY PARTNERSHIP</small><h3>PARTNERI JELENTKEZÉS</h3><p>Szerelőtelepek számára kialakított Kaito Supply együttműködés.</p></div>
+          <form class="kaito-form" data-demo-form>
+            <label><span>Cég neve</span><input type="text" name="company" placeholder="Szerelőtelep neve" required></label>
+            <label><span>Kapcsolattartó / Discord név</span><input type="text" name="contact" placeholder="Kapcsolattartó neve" required></label>
+            <fieldset class="form-wide"><legend>Melyik partneri csomag érdekel?</legend><div class="choice-grid partner-choices">
+              <label class="choice"><input type="radio" name="tier" value="Standard Partner" required><span><b>STANDARD PARTNER</b><small>10% Parts Discount ↔ 25% Service Discount</small></span></label>
+              <label class="choice"><input type="radio" name="tier" value="Professional Partner"><span><b>PROFESSIONAL PARTNER</b><small>15% Parts Discount ↔ 50% Service Discount</small></span></label>
+              <label class="choice"><input type="radio" name="tier" value="Corporate Partner"><span><b>CORPORATE PARTNER</b><small>20% Parts Discount ↔ 100% Service Labor Discount</small></span></label>
+            </div></fieldset>
+            <label class="form-wide"><span>Milyen alkatrészekre / ellátásra lenne elsősorban szükség?</span><textarea name="supply" rows="4" placeholder="Írd le a várható alkatrész- és ellátási igényt..." required></textarea></label>
+            <label class="form-wide"><span>Miért szeretnél csatlakozni a Kaito partnerhálózatához?</span><textarea name="reason" rows="4" placeholder="Röviden írd le az együttműködés célját..." required></textarea></label>
+            <label class="form-wide"><span>Egyéb megjegyzés / együttműködési elképzelés</span><textarea name="note" rows="4" placeholder="Opcionális kiegészítés..."></textarea></label>
+            <div class="form-submit form-wide"><button class="btn btn-primary" type="submit">PARTNERI JELENTKEZÉS KÜLDÉSE</button><small>Az űrlap Discord-küldését a végleges integrációnál aktiváljuk.</small></div>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -302,7 +348,7 @@
       <span class="brand-mark">海</span>
       <span><strong>KAITO</strong><small>AUTOMOTIVE GROUP</small></span>
     </div>
-    <p>© <span id="year"></span> Kaito Automotive Group. RP project.</p>
+    <div class="footer-copy"><strong>PRECISION • PERFORMANCE • JAPANESE SPIRIT</strong><p>© <span id="year"></span> Kaito Automotive Group</p></div>
   </footer>
 
   <script src="script.js"></script>

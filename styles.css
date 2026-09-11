@@ -414,3 +414,33 @@ footer{
 .about-philosophy{position:relative;text-align:center;margin-top:20px;padding:72px 25px;background:radial-gradient(ellipse at center bottom,rgba(255,255,255,.06),transparent 55%),linear-gradient(180deg,#0b0c0d,#121212);border-top:1px solid #202020;border-bottom:1px solid #202020}.about-philosophy small,.about-kaito-build small{color:#d51a25;letter-spacing:.28em}.about-philosophy h3{font-size:clamp(20px,3vw,30px);letter-spacing:.12em;margin:18px 0 10px}.about-philosophy p{max-width:650px;margin:auto;color:#999;line-height:1.7}.about-philosophy .about-mark{position:absolute;right:5%;top:30px;font-size:70px;color:rgba(255,255,255,.12)}
 .about-kaito-build{margin-top:28px;padding:38px 40px;border:1px solid #a4141d;background:linear-gradient(115deg,rgba(115,8,15,.2),#090a0b 55%);box-shadow:inset 0 0 60px rgba(160,10,20,.05)}.about-kaito-build h3{font-size:clamp(34px,5vw,58px);margin:8px 0 4px;letter-spacing:.06em}.about-kaito-build>div:first-child>strong{color:#df1f2d;letter-spacing:.16em}.about-kaito-build p{max-width:760px;color:#9b9b9e;line-height:1.7;margin:18px 0 26px}.about-limit{display:inline-flex;align-items:center;border:1px solid #6f1116;min-width:360px}.about-limit>span{font-size:42px;color:#df1f2d;padding:10px 20px;border-right:1px solid #6f1116}.about-limit>div{padding:10px 18px;display:flex;flex-direction:column;gap:5px}.about-limit b{font-size:11px;letter-spacing:.18em}.about-limit small{font-size:9px}
 @media(max-width:800px){.about-pillars{grid-template-columns:1fr}.about-pillars article{min-height:auto}.about-kaito-build{padding:28px 22px}.about-limit{min-width:0;width:100%}.about-premium:before{font-size:90px}}
+
+/* Contact — customer requests + Supply partnership */
+.contact-section{padding:120px clamp(20px,6vw,90px);text-align:left}
+.contact-shell{max-width:1280px;margin:auto}
+.contact-shell>h2{font-size:clamp(42px,6vw,78px);margin:12px 0 18px;line-height:.96;text-transform:uppercase}
+.contact-shell>h2 span{color:var(--red)}
+.contact-lead{max-width:760px;color:#999;line-height:1.7}
+.contact-paths{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:42px 0 22px}
+.contact-path{appearance:none;text-align:left;color:#eee;background:#0c0d0e;border:1px solid #292929;padding:25px;min-height:155px;cursor:pointer;transition:.2s}
+.contact-path:hover,.contact-path.active{border-color:#a4141d;background:linear-gradient(135deg,rgba(140,8,16,.2),#0b0c0d)}
+.contact-path small{display:block;color:#d51a25;font-size:10px;font-weight:900;letter-spacing:.18em;margin-bottom:18px}
+.contact-path strong{display:block;font-size:19px;letter-spacing:.08em;margin-bottom:10px}
+.contact-path span{display:block;color:#858589;line-height:1.55;font-size:12px}
+.contact-path:disabled{cursor:default;opacity:.58}.contact-path:disabled:hover{border-color:#292929;background:#0c0d0e}
+.contact-form-panel{display:none;border:1px solid #292929;background:linear-gradient(145deg,#0d0e0f,#090a0b);padding:38px;margin-top:18px}
+.contact-form-panel.active{display:block}
+.form-heading{padding-bottom:26px;border-bottom:1px solid #262626;margin-bottom:28px}
+.form-heading small{color:#d51a25;font-weight:900;letter-spacing:.18em}.form-heading h3{font-size:clamp(28px,4vw,44px);margin:8px 0;letter-spacing:.08em}.form-heading p{margin:0;color:#858589}
+.kaito-form{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.kaito-form label>span,.kaito-form legend{display:block;color:#d5d5d7;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:9px}
+.kaito-form input[type="text"],.kaito-form textarea{width:100%;border:1px solid #303033;background:#090a0b;color:#eee;padding:15px 16px;font:inherit;outline:none;resize:vertical}
+.kaito-form input[type="text"]:focus,.kaito-form textarea:focus{border-color:#a4141d;box-shadow:0 0 0 1px rgba(164,20,29,.2)}
+.kaito-form fieldset{border:0;padding:0;margin:0}.form-wide{grid-column:1/-1}
+.choice-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.choice-grid-3,.partner-choices{grid-template-columns:repeat(3,1fr)}
+.choice{position:relative;cursor:pointer}.choice input{position:absolute;opacity:0;pointer-events:none}.choice>span{height:100%;margin:0!important;padding:15px 16px;border:1px solid #303033;background:#0a0b0c;display:flex!important;flex-direction:column;justify-content:center;gap:6px;color:#bbb!important;transition:.2s}
+.choice input:checked+span{border-color:#d20a19;background:rgba(160,8,18,.16);color:#fff!important}.choice b{font-size:11px}.choice small{color:#777;font-size:9px;line-height:1.45}
+.form-submit{display:flex;align-items:center;gap:18px;margin-top:6px}.form-submit small{color:#666;font-size:10px;line-height:1.5}.form-message{color:#d51a25!important;font-weight:800!important;letter-spacing:.06em}
+.footer-copy{text-align:right}.footer-copy strong{display:block;color:#777;font-size:9px;letter-spacing:.14em;margin-bottom:6px}.footer-copy p{margin:0}
+@media(max-width:900px){.contact-paths{grid-template-columns:1fr}.kaito-form{grid-template-columns:1fr}.choice-grid,.choice-grid-3,.partner-choices{grid-template-columns:1fr 1fr}.form-wide{grid-column:1}.contact-form-panel{padding:25px}.footer-copy{text-align:left}}
+@media(max-width:560px){.choice-grid,.choice-grid-3,.partner-choices{grid-template-columns:1fr}.form-submit{align-items:flex-start;flex-direction:column}}
