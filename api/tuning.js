@@ -19,6 +19,7 @@ export default async function handler(req, res) {
 
   const body = req.body || {};
   const customer = clean(body.customer, 120);
+  const phone = clean(body.phone, 80) || 'Nincs megadva.';
   const vehicle = clean(body.vehicle, 120);
   const value = clean(body.value, 80);
   const service = clean(body.service, 80);
@@ -43,6 +44,7 @@ export default async function handler(req, res) {
       color: 12653087,
       fields: [
         { name: '👤 Ügyfél / Discord név', value: customer, inline: true },
+        { name: '📞 Telefonszám', value: phone, inline: true },
         { name: '🚗 Jármű', value: vehicle, inline: true },
         { name: '💰 Jármű értéke', value, inline: true },
         { name: '🔧 Szolgáltatás', value: service, inline: true },

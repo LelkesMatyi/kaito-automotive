@@ -20,6 +20,7 @@ export default async function handler(req, res) {
   const body = req.body || {};
   const company = clean(body.company, 120);
   const contact = clean(body.contact, 120);
+  const phone = clean(body.phone, 80) || 'Nincs megadva.';
   const tier = clean(body.tier, 80);
   const supply = clean(body.supply, 1200);
   const reason = clean(body.reason, 1200);
@@ -43,6 +44,7 @@ export default async function handler(req, res) {
       fields: [
         { name: '🏢 Cég neve', value: company, inline: true },
         { name: '👤 Kapcsolattartó / Discord név', value: contact, inline: true },
+        { name: '📞 Telefonszám', value: phone, inline: true },
         { name: '🤝 Partneri szint', value: tier, inline: true },
         { name: '📦 Alkatrész / ellátási igény', value: supply, inline: false },
         { name: '💬 Csatlakozás indoka', value: reason, inline: false },
