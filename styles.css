@@ -427,6 +427,7 @@ footer{
 .contact-path small{display:block;color:#d51a25;font-size:10px;font-weight:900;letter-spacing:.18em;margin-bottom:18px}
 .contact-path strong{display:block;font-size:19px;letter-spacing:.08em;margin-bottom:10px}
 .contact-path span{display:block;color:#858589;line-height:1.55;font-size:12px}
+.discord-path{text-decoration:none}
 .contact-path:disabled{cursor:default;opacity:.58}.contact-path:disabled:hover{border-color:#292929;background:#0c0d0e}
 .contact-form-panel{display:none;border:1px solid #292929;background:linear-gradient(145deg,#0d0e0f,#090a0b);padding:38px;margin-top:18px}
 .contact-form-panel.active{display:block}
