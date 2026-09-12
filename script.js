@@ -32,7 +32,7 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Contact form switcher. Discord delivery will be connected in the final integration step.
+// Contact form switcher.
 const contactPaths = document.querySelectorAll('[data-contact-target]');
 const contactPanels = document.querySelectorAll('.contact-form-panel');
 contactPaths.forEach(button => button.addEventListener('click', () => {
@@ -43,16 +43,49 @@ contactPaths.forEach(button => button.addEventListener('click', () => {
   if (panel) panel.classList.add('active');
 }));
 
-document.querySelectorAll('[data-demo-form]').forEach(form => {
-  form.addEventListener('submit', event => {
+function getFormMessage(form) {
+  let message = form.querySelector('.form-message');
+  if (!message) {
+    message = document.createElement('small');
+    message.className = 'form-message';
+    form.querySelector('.form-submit').appendChild(message);
+  }
+  return message;
+}
+
+document.querySelectorAll('[data-discord-form]').forEach(form => {
+  form.addEventListener('submit', async event => {
     event.preventDefault();
     if (!form.reportValidity()) return;
-    let message = form.querySelector('.form-message');
-    if (!message) {
-      message = document.createElement('small');
-      message.className = 'form-message';
-      form.querySelector('.form-submit').appendChild(message);
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    const message = getFormMessage(form);
+    const originalText = submitButton.textContent;
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'KÜLDÉS...';
+    message.textContent = 'Küldés folyamatban...';
+
+    try {
+      const payload = Object.fromEntries(new FormData(form).entries());
+      const response = await fetch(form.dataset.discordForm, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) throw new Error('Submission failed');
+
+      message.textContent = form.dataset.discordForm.includes('partner')
+        ? 'Sikeres jelentkezés! A Kaito vezetősége megkapta az adatokat.'
+        : 'Sikeres ajánlatkérés! A Kaito Staff megkapta az adatokat.';
+      form.reset();
+    } catch (error) {
+      console.error(error);
+      message.textContent = 'A küldés nem sikerült. Kérjük, próbáld újra később.';
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalText;
     }
-    message.textContent = 'Az űrlap működik — a Discord-küldést a végleges integrációnál aktiváljuk.';
   });
 });
