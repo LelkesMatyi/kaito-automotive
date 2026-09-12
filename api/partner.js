@@ -20,13 +20,14 @@ export default async function handler(req, res) {
   const body = req.body || {};
   const company = clean(body.company, 120);
   const contact = clean(body.contact, 120);
+  const position = clean(body.position, 120);
   const phone = clean(body.phone, 80) || 'Nincs megadva.';
   const tier = clean(body.tier, 80);
   const supply = clean(body.supply, 1200);
   const reason = clean(body.reason, 1200);
   const note = clean(body.note, 1200) || 'Nincs megadva.';
 
-  if (!company || !contact || !tier || !supply || !reason) {
+  if (!company || !contact || !position || !tier || !supply || !reason) {
     return json(res, 400, { ok: false, error: 'Missing required fields' });
   }
 
@@ -44,6 +45,7 @@ export default async function handler(req, res) {
       fields: [
         { name: '🏢 Cég neve', value: company, inline: true },
         { name: '👤 Kapcsolattartó / Discord név', value: contact, inline: true },
+        { name: '👔 Kapcsolattartó beosztása', value: position, inline: true },
         { name: '📞 Telefonszám', value: phone, inline: true },
         { name: '🤝 Partneri szint', value: tier, inline: true },
         { name: '📦 Alkatrész / ellátási igény', value: supply, inline: false },
