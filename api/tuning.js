@@ -1,11 +1,41 @@
 const MAX_LEN = 1000;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const RATE_MAX = 5;
+const rateStore = globalThis.__kaitoRateStore || (globalThis.__kaitoRateStore = new Map());
 
 function clean(value, max = MAX_LEN) {
   return String(value ?? '').trim().slice(0, max);
 }
 
 function json(res, status, body) {
+  res.setHeader('Cache-Control', 'no-store');
   res.status(status).json(body);
+}
+
+function clientIp(req) {
+  const forwarded = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+  return forwarded || req.socket?.remoteAddress || 'unknown';
+}
+
+function isRateLimited(req, bucketName) {
+  const now = Date.now();
+  const key = `${bucketName}:${clientIp(req)}`;
+  const recent = (rateStore.get(key) || []).filter(ts => now - ts < RATE_WINDOW_MS);
+  if (recent.length >= RATE_MAX) {
+    rateStore.set(key, recent);
+    return true;
+  }
+  recent.push(now);
+  rateStore.set(key, recent);
+  return false;
+}
+
+function looksLikeBot(body) {
+  if (clean(body.website, 200)) return true;
+  const startedAt = Number(body._startedAt || 0);
+  if (!Number.isFinite(startedAt) || startedAt <= 0) return true;
+  const elapsed = Date.now() - startedAt;
+  return elapsed < 1500 || elapsed > 2 * 60 * 60 * 1000;
 }
 
 export default async function handler(req, res) {
@@ -18,6 +48,9 @@ export default async function handler(req, res) {
   if (!webhook) return json(res, 500, { ok: false, error: 'Webhook not configured' });
 
   const body = req.body || {};
+  if (looksLikeBot(body)) return json(res, 400, { ok: false, error: 'Invalid submission' });
+  if (isRateLimited(req, 'tuning')) return json(res, 429, { ok: false, error: 'Too many submissions' });
+
   const customer = clean(body.customer, 120);
   const phone = clean(body.phone, 80) || 'Nincs megadva.';
   const vehicle = clean(body.vehicle, 120);

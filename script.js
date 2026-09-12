@@ -54,6 +54,8 @@ function getFormMessage(form) {
 }
 
 document.querySelectorAll('[data-discord-form]').forEach(form => {
+  const formOpenedAt = Date.now();
+  let lastSubmitAt = 0;
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if (!form.reportValidity()) return;
@@ -61,6 +63,12 @@ document.querySelectorAll('[data-discord-form]').forEach(form => {
     const submitButton = form.querySelector('button[type="submit"]');
     const message = getFormMessage(form);
     const originalText = submitButton.textContent;
+    const now = Date.now();
+
+    if (now - lastSubmitAt < 10000) {
+      message.textContent = 'Kérjük, várj néhány másodpercet az újabb küldés előtt.';
+      return;
+    }
 
     submitButton.disabled = true;
     submitButton.textContent = 'KÜLDÉS...';
@@ -68,6 +76,7 @@ document.querySelectorAll('[data-discord-form]').forEach(form => {
 
     try {
       const payload = Object.fromEntries(new FormData(form).entries());
+      payload._startedAt = String(formOpenedAt);
       const response = await fetch(form.dataset.discordForm, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -79,6 +88,7 @@ document.querySelectorAll('[data-discord-form]').forEach(form => {
       message.textContent = form.dataset.discordForm.includes('partner')
         ? 'Sikeres jelentkezés! A Kaito vezetősége megkapta az adatokat.'
         : 'Sikeres ajánlatkérés! A Kaito Staff megkapta az adatokat.';
+      lastSubmitAt = Date.now();
       form.reset();
     } catch (error) {
       console.error(error);

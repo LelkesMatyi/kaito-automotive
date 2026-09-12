@@ -456,3 +456,17 @@ footer{
 .footer-copy{text-align:right}.footer-copy strong{display:block;color:#777;font-size:9px;letter-spacing:.14em;margin-bottom:6px}.footer-copy p{margin:0}
 @media(max-width:900px){.contact-paths{grid-template-columns:1fr}.kaito-form{grid-template-columns:1fr}.choice-grid,.choice-grid-3,.partner-choices{grid-template-columns:1fr 1fr}.form-wide{grid-column:1}.contact-form-panel{padding:25px}.footer-copy{text-align:left}}
 @media(max-width:560px){.choice-grid,.choice-grid-3,.partner-choices{grid-template-columns:1fr}.form-submit{align-items:flex-start;flex-direction:column}}
+
+
+/* Final launch polish: anti-spam field + mobile navigation */
+.hp-field{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
+@media (max-width:900px){
+  .main-nav a{width:100%;text-align:center;padding:12px 15px}
+  .menu-toggle{border:1px solid #3f3f3f;padding:7px 11px;background:rgba(8,8,8,.55);transition:.2s}
+  .menu-toggle:hover{border-color:#82101a;background:linear-gradient(135deg,rgba(132,10,20,.24),rgba(12,12,12,.92))}
+}
+@media (max-width:480px){
+  .hero h1{font-size:clamp(42px,13vw,50px)}
+  .contact-form-panel{padding:20px 16px}
+  .kaito-form input[type="text"],.kaito-form textarea{font-size:16px}
+}
